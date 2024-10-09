@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="kdg.monopoly.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane fx:id="main" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style/game.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kdg.monopoly.HelloController">
+   <children>
+      <ImageView fx:id="background" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
+         <Image url="@assets/PossibleBackground.jpg" />
+      </ImageView>
+      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Group translateY="80.0" StackPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="buttonStart" alignment="CENTER" layoutX="274.0" layoutY="900.0" mnemonicParsing="false" prefWidth="53.0" text="Button" />
+                  <Button fx:id="buttonRules" layoutX="274.0" layoutY="850.0" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="buttonEnd" layoutX="274.0" layoutY="800.0" mnemonicParsing="false" text="Button" />
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+      <StackPane AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Group StackPane.alignment="BOTTOM_LEFT">
+               <children>
+                  <Button fx:id="buttonInfo" alignment="CENTER" layoutX="274.0" layoutY="30.0" mnemonicParsing="false" prefWidth="53.0" text="Button" />
+                  <Button fx:id="buttonSettings" layoutX="274.0" layoutY="90.0" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="buttonStats" layoutX="274.0" layoutY="150.0" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="buttonOpen" layoutX="274.0" layoutY="210.0" mnemonicParsing="false" onAction="#show" text="Button" />
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+      <StackPane AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Group StackPane.alignment="TOP_RIGHT">
+               <children>
+                  <Button fx:id="buttonAcc" alignment="CENTER" layoutX="274.0" layoutY="30.0" maxHeight="102.0" mnemonicParsing="false" prefHeight="102.0" prefWidth="50.0" text="Button" />
+               </children>
+            </Group>
+         </children>
+      </StackPane>
+   </children>
+</AnchorPane>

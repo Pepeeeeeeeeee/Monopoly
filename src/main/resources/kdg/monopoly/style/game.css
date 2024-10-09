@@ -1,0 +1,29 @@
+#buttonStart, #buttonRules, #buttonEnd{
+    -fx-background-color: linear-gradient(#FD8895, #FD88B5);
+    -fx-background-radius: 10;
+    -fx-background-insets: 0;
+    -fx-border-radius: 10;
+    -fx-border-color: black;
+    -fx-text-fill: black;
+    -fx-min-width: 80px;
+    -fx-min-height: 40px;
+}
+
+#buttonInfo, #buttonSettings, #buttonStats, #buttonOpen, #buttonAcc{
+    -fx-background-radius: 5em;
+    -fx-min-width: 50px;
+    -fx-min-height: 50px;
+    -fx-max-width: 50px;
+    -fx-max-height: 50px;
+    -fx-background-color: linear-gradient(#FD8895, #FD88B5);
+    -fx-border-color: black;
+    -fx-border-radius: 5em;
+}
+
+#buttonInfo, #buttonSettings, #buttonStats {
+    visibility: hidden;
+}
+
+/*.button:hover{*/
+/*    -fx-background-color: linear-gradient(#FD88B5, #FF8FFF);*/
+/*}*/
