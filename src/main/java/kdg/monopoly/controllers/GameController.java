@@ -1,0 +1,60 @@
+package kdg.monopoly.controllers;
+
+import kdg.monopoly.models.Player;
+import kdg.monopoly.models.Property;
+import kdg.monopoly.classes.PropertyStorage;
+
+public class GameController {
+    private int doubleCounter;
+    public int roundNumber;
+    public int diceFace1;
+    public int diceFace2;
+
+    public Player player = new Player();
+    public PropertyController propertyController = new PropertyController();
+
+    public int[] diceRoll(){
+        diceFace1 = (int) (Math.random() * 6) + 1;
+        diceFace2 = (int) (Math.random() * 6) + 1;
+        int[] roll = new int[2];
+        roll[0] = diceFace1;
+        roll[1] = diceFace2;
+        return roll;
+    }
+
+    public void checkDoubles(){
+        if (diceFace1 == diceFace2) doubleCounter++;
+        else doubleCounter = 0;
+    }
+
+    public void movePlayer(){
+        roundNumber++;
+        int[] diceRol = diceRoll();
+
+
+        int roll = diceRol[0] + diceRol[1];
+
+        checkDoubles();
+        if (doubleCounter >= 3) moveToJail();
+
+        int currentPosition = player.getCurrentPosition();
+        int newPosition = currentPosition + roll;
+
+        if(newPosition >= 39){
+            int mean = newPosition - 39;
+            player.setCurrentPosition(mean);
+        }
+        else{
+            player.setCurrentPosition(newPosition);
+        }
+
+        if(player.getCurrentPosition() == 30) moveToJail();
+
+        propertyController.buyProperty(player.getCurrentPosition());
+    }
+
+    public void moveToJail(){
+        player.setCurrentPosition(11);
+    }
+
+}

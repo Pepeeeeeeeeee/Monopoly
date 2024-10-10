@@ -1,5 +1,9 @@
 package kdg.monopoly.models;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.function.Function;
+
 public class User {
     private int id;
     private String uName;
@@ -10,7 +14,7 @@ public class User {
         return id;
     }
 
-    private void setUname(String uName){
+    public void setUname(String uName){
         this.uName = uName;
     }
 
@@ -18,8 +22,9 @@ public class User {
         return uName;
     }
 
-    private void setPassword(String password){
+    public void setPassword(String password) {
         this.password = password;
+        post(this.password);
     }
 
     public String getPassword(){
@@ -32,5 +37,18 @@ public class User {
 
     public boolean getLoggedIn(){
         return isLoggedIn;
+    }
+
+    private void post(String password) {
+        try{
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
+            messageDigest.update(password.getBytes());
+            String stringHash = new String(messageDigest.digest());
+
+            //post stringHash
+        }
+        catch (NoSuchAlgorithmException e){
+            System.err.println(e.getMessage());
+        }
     }
 }

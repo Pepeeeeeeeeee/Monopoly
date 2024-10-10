@@ -1,32 +1,124 @@
 package kdg.monopoly.controllers;
 
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.geometry.Rectangle2D;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Screen;
+import javafx.stage.Stage;
+import org.jetbrains.annotations.Nullable;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import java.awt.event.ActionEvent;
+import java.io.IOException;
 
-public class StartMenuController implements Initializable {
+public class StartMenuController {
     @FXML
     public AnchorPane main;
+    public Button buttonOpen;
+    public Button buttonInfo;
+    public Button buttonSettings;
+    public Button buttonStats;
     @FXML
     private ImageView background;
 
-    double sizeX;
-    double sizeY;
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+    private boolean hidden = true;
 
+    public void test(Stage stage) {
+        stage.widthProperty().addListener((obs, oldVal, newVal) -> {
+            background.setFitWidth(stage.getWidth());
+            System.out.println(stage.getWidth());
+        });
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        Rectangle2D screenBounds = Screen.getPrimary().getVisualBounds();
-        sizeX = screenBounds.getHeight();
-        sizeY = screenBounds.getWidth();
+        stage.heightProperty().addListener((obs, oldVal, newVal) -> {
+            background.setFitHeight(stage.getHeight());
+            System.out.println(stage.getHeight());
+        });
+//        Runnable helloRunnable = new Runnable() {
+//            public void run() {
+//                sizeX = stage.getWidth();
+//                sizeY = stage.getHeight();
+//
+//                System.out.println(sizeX + " " + sizeY);
+//
+//                background.setFitWidth(sizeX);
+//                background.setFitHeight(sizeY);
+//            }
+//        };
+//
+//        ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
+//        executor.scheduleAtFixedRate(helloRunnable, 0, 500, TimeUnit.MILLISECONDS);
+    }
 
-        background.setFitWidth(sizeX);
-        background.setFitHeight(sizeY);
+    public void show(){
+        if(hidden){
+            buttonInfo.setVisible(true);
+            buttonSettings.setVisible(true);
+            buttonStats.setVisible(true);
+            hidden = false;
+        }
+        else{
+            buttonInfo.setVisible(false);
+            buttonSettings.setVisible(false);
+            buttonStats.setVisible(false);
+            hidden = true;
+        }
+    }
+
+    public void endGame(){
+        stage = (Stage) main.getScene().getWindow();
+        stage.close();
+    }
+
+    public void startGame(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("gameScene.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void rules(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("rulesScene.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void settings(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("settingsScene.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void info(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("infoScene.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void stats(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("statsScene.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void account(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("accountScene.fxml"));
+        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 }

@@ -4,18 +4,18 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
+import kdg.monopoly.controllers.StartMenuController;
 
 public class MainApplication extends Application {
     @Override
     public void start(Stage stage) throws NullPointerException, IOException {
         try{
-            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("hello-view.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("menu.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
 
-            HelloController controller = fxmlLoader.getController();
+            StartMenuController controller = fxmlLoader.getController();
             controller.test(stage);
 
             File f = new File("src\\main\\resources\\kdg\\monopoly\\style\\game.css");

@@ -6,8 +6,9 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.StackPane?>
+<?import kdg.monopoly.controllers.StartMenuController ?>
 
-<AnchorPane fx:id="main" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style/game.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kdg.monopoly.HelloController">
+<AnchorPane fx:id="main" maxHeight="Infinity" maxWidth="Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style/game.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kdg.monopoly.controllers.StartMenuController">
    <children>
       <ImageView fx:id="background" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true">
          <Image url="@assets/PossibleBackground.jpg" />
@@ -18,7 +19,7 @@
                <children>
                   <Button fx:id="buttonStart" alignment="CENTER" layoutX="274.0" layoutY="900.0" mnemonicParsing="false" prefWidth="53.0" text="Button" />
                   <Button fx:id="buttonRules" layoutX="274.0" layoutY="850.0" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="buttonEnd" layoutX="274.0" layoutY="800.0" mnemonicParsing="false" text="Button" />
+                  <Button fx:id="buttonEnd" layoutX="274.0" layoutY="800.0" mnemonicParsing="false" onAction="#endGame" text="Button" />
                </children>
             </Group>
          </children>
