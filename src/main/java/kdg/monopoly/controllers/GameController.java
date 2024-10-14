@@ -1,10 +1,17 @@
 package kdg.monopoly.controllers;
 
+import javafx.animation.TranslateTransition;
+import javafx.fxml.FXML;
+import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import kdg.monopoly.models.Player;
 import kdg.monopoly.models.Property;
 import kdg.monopoly.classes.PropertyStorage;
 
 public class GameController {
+    @FXML
+    public Rectangle box;
+
     private int doubleCounter;
     public int roundNumber;
     public int diceFace1;
@@ -43,6 +50,7 @@ public class GameController {
         if(newPosition >= 39){
             int mean = newPosition - 39;
             player.setCurrentPosition(mean);
+            player.setMoney(player.getMoney() + 200);
         }
         else{
             player.setCurrentPosition(newPosition);
@@ -50,7 +58,13 @@ public class GameController {
 
         if(player.getCurrentPosition() == 30) moveToJail();
 
-        propertyController.buyProperty(player.getCurrentPosition());
+       // propertyController.buyProperty(player.getCurrentPosition());
+
+        TranslateTransition translate = new TranslateTransition();
+        translate.setNode(box);
+        translate.setDuration(Duration.millis(1000));
+        translate.setByX(roll*100);
+        translate.play();
     }
 
     public void moveToJail(){

@@ -8,7 +8,11 @@ public class PropertyController {
 
     public PropertyStorage propertyStorage = new PropertyStorage();
     public Player player = new Player();
+    public boolean buyOfferAcceptance;
 
+    public void openGenericInteractionWindow(String title, String content, int offer) {
+        //TODO: open interaction window without content
+    }
     //TODO: separate buyable and non-buyable properties
     public void buyProperty(int playerPosition){
         Property property = propertyStorage.getCardById(playerPosition);
@@ -20,7 +24,8 @@ public class PropertyController {
 
     //TODO: show buy option window
     public void buyPropertyWindow(){
-
+        //TODO: fill in params
+        //openGenericInteractionWindow();
     }
 
     public void acceptBuyProperty(int propertyId){
@@ -46,5 +51,25 @@ public class PropertyController {
         player.setMoney(playerMoney + price);
         player.removeProperty(propertyId);
 
+    }
+
+    public void tradeProperty(int propertyId){
+
+    }
+
+    public boolean buyPropertyFromPlayer(int offer, int propertyId){
+        if(buyOfferAcceptance){
+            //TODO: fill in params
+            //openGenericInteractionWindow();
+        }
+        return buyOfferAcceptance;
+    }
+
+    public void acceptBuyOffer(){
+        buyOfferAcceptance = true;
+    }
+
+    public void refuseBuyOffer(){
+        buyOfferAcceptance = false;
     }
 }

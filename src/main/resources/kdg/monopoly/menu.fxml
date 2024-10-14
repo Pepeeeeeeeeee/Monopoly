@@ -17,9 +17,9 @@
          <children>
             <Group translateY="80.0" StackPane.alignment="CENTER">
                <children>
-                  <Button fx:id="buttonStart" alignment="CENTER" layoutX="274.0" layoutY="900.0" mnemonicParsing="false" prefWidth="53.0" text="Button" />
+                  <Button fx:id="buttonEnd" layoutX="274.0" layoutY="900.0" mnemonicParsing="false" onAction="#endGame" text="Button" />
                   <Button fx:id="buttonRules" layoutX="274.0" layoutY="850.0" mnemonicParsing="false" text="Button" />
-                  <Button fx:id="buttonEnd" layoutX="274.0" layoutY="800.0" mnemonicParsing="false" onAction="#endGame" text="Button" />
+                  <Button fx:id="buttonStart" layoutX="274.0" layoutY="800.0" mnemonicParsing="false" onAction="#startGame" text="Button" />
                </children>
             </Group>
          </children>

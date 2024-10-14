@@ -9,10 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.Nullable;
+import kdg.monopoly.MainApplication;
 
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+import java.util.Objects;
+
 
 public class StartMenuController {
     @FXML
@@ -21,6 +23,7 @@ public class StartMenuController {
     public Button buttonInfo;
     public Button buttonSettings;
     public Button buttonStats;
+    public Button buttonStart;
     @FXML
     private ImageView background;
 
@@ -75,14 +78,20 @@ public class StartMenuController {
         stage.close();
     }
 
-    public void startGame(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("gameScene.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
+    public void startGame() throws IOException, NullPointerException {
+        try{
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("game.fxml"));
+        root = fxmlLoader.load();
+        stage = (Stage) buttonStart.getScene().getWindow();
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+        }
+        catch(NullPointerException e){
+            System.err.println(e.getMessage());
+        }
     }
-
+    //TODO: Change all functions bellow according to startGame()
     public void rules(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("rulesScene.fxml"));
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
