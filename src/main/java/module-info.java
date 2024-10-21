@@ -6,6 +6,7 @@ module kdg.monopoly {
     requires com.almasb.fxgl.all;
     requires java.desktop;
     requires annotations;
+    requires java.sql;
 
     opens kdg.monopoly to javafx.fxml;
     exports kdg.monopoly;
