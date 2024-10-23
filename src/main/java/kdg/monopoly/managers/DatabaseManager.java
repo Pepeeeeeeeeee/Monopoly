@@ -66,20 +66,20 @@ public class DatabaseManager {
             e.printStackTrace();
         }
     }
-//
-//    public void userAuth(){
-//        try {
-//            String pass = user.getPassword();
-//            con = DriverManager.getConnection(connectionUrl);
-//            String SQL = format("SELECT * FROM users WHERE uPassword = '{%s}'", pass);
-//            stmt = con.createStatement();
-//            rs = stmt.executeQuery(SQL);
-//            while (rs.next()) {
-//                System.out.println(rs.getString(1) + " " + rs.getString(2));
-//            }
-//        }
-//        catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+
+    public void userAuth(){
+        try {
+            String pass = user.getPassword();
+            con = DriverManager.getConnection(connectionUrl);
+            String SQL = format("SELECT COUNT(*) FROM users WHERE uPassword = '{%s}'", pass);
+            stmt = con.createStatement();
+            rs = stmt.executeQuery(SQL);
+            while (rs.next()) {
+                System.out.println(rs.getString(1) + " " + rs.getString(2));
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
