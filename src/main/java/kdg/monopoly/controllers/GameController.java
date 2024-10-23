@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
 import kdg.monopoly.models.Player;
-import kdg.monopoly.models.Property;
-import kdg.monopoly.classes.PropertyStorage;
 
 public class GameController {
     @FXML
@@ -16,6 +14,10 @@ public class GameController {
     public int roundNumber;
     public int diceFace1;
     public int diceFace2;
+
+    final private int jailPosition = 11;
+    final private int moveToJailCard = 11;
+    final private int maxPosition = 39;
 
     public Player player = new Player();
     public PropertyController propertyController = new PropertyController();
@@ -47,7 +49,7 @@ public class GameController {
         int currentPosition = player.getCurrentPosition();
         int newPosition = currentPosition + roll;
 
-        if(newPosition >= 39){
+        if(newPosition >= maxPosition){
             int mean = newPosition - 39;
             player.setCurrentPosition(mean);
             player.setMoney(player.getMoney() + 200);
@@ -56,19 +58,25 @@ public class GameController {
             player.setCurrentPosition(newPosition);
         }
 
-        if(player.getCurrentPosition() == 30) moveToJail();
+        if(player.getCurrentPosition() == moveToJailCard) moveToJail();
 
        // propertyController.buyProperty(player.getCurrentPosition());
 
+        movePlayerAnimation(roll);
+
+        if(doubleCounter > 0) movePlayer();
+    }
+
+    public void moveToJail(){
+        player.setCurrentPosition(jailPosition);
+    }
+
+    public void movePlayerAnimation(int roll){
         TranslateTransition translate = new TranslateTransition();
         translate.setNode(box);
         translate.setDuration(Duration.millis(1000));
         translate.setByX(roll*100);
         translate.play();
-    }
-
-    public void moveToJail(){
-        player.setCurrentPosition(11);
     }
 
 }

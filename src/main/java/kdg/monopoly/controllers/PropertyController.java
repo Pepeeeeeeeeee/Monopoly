@@ -1,6 +1,6 @@
 package kdg.monopoly.controllers;
 
-import kdg.monopoly.classes.PropertyStorage;
+import kdg.monopoly.managers.PropertyStorage;
 import kdg.monopoly.models.Player;
 import kdg.monopoly.models.Property;
 
@@ -13,7 +13,6 @@ public class PropertyController {
     public void openGenericInteractionWindow(String title, String content, int offer) {
         //TODO: open interaction window without content
     }
-    //TODO: separate buyable and non-buyable properties
     public void buyProperty(int playerPosition){
         Property property = propertyStorage.getCardById(playerPosition);
         if(property.isBuyable() && player.getMoney() >= property.getCardPurchaseValue()){

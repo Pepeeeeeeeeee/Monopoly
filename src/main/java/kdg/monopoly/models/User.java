@@ -23,8 +23,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
-        post(this.password);
+        this.password = hashPasswd(password);
     }
 
     public String getPassword(){
@@ -39,16 +38,16 @@ public class User {
         return isLoggedIn;
     }
 
-    private void post(String password) {
+    private String hashPasswd(String password) {
+        String stringHash = null;
         try{
             MessageDigest messageDigest = MessageDigest.getInstance("SHA-256");
             messageDigest.update(password.getBytes());
-            String stringHash = new String(messageDigest.digest());
-
-            //post stringHash
+            stringHash = new String(messageDigest.digest());
         }
         catch (NoSuchAlgorithmException e){
             System.err.println(e.getMessage());
         }
+        return stringHash == null ? "" : stringHash;
     }
 }

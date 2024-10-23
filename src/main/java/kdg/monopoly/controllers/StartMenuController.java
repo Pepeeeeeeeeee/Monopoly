@@ -91,43 +91,73 @@ public class StartMenuController {
             System.err.println(e.getMessage());
         }
     }
-    //TODO: Change all functions bellow according to startGame()
-    public void rules(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("rulesScene.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
+    public void rules() throws IOException, NullPointerException {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("rules.fxml"));
+            root = fxmlLoader.load();
+            stage = (Stage) buttonStart.getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(NullPointerException e){
+            System.err.println(e.getMessage());
+        }
     }
 
-    public void settings(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("settingsScene.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void settings() throws IOException, NullPointerException {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("settings.fxml"));
+            root = fxmlLoader.load();
+            stage = (Stage) buttonStart.getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(NullPointerException e){
+            System.err.println(e.getMessage());
+        }
     }
 
-    public void info(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("infoScene.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void info() throws IOException, NullPointerException {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("info.fxml"));
+            root = fxmlLoader.load();
+            stage = (Stage) buttonStart.getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(NullPointerException e){
+            System.err.println(e.getMessage());
+        }
     }
 
-    public void stats(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("statsScene.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void stats() throws IOException, NullPointerException {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("stats.fxml"));
+            root = fxmlLoader.load();
+            stage = (Stage) buttonStart.getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(NullPointerException e){
+            System.err.println(e.getMessage());
+        }
     }
-    public void account(ActionEvent e) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("accountScene.fxml"));
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+    public void account() throws IOException, NullPointerException {
+        try{
+            FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("account.fxml"));
+            root = fxmlLoader.load();
+            stage = (Stage) buttonStart.getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+        catch(NullPointerException e){
+            System.err.println(e.getMessage());
+        }
     }
 }

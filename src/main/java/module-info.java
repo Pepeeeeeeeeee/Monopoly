@@ -13,6 +13,8 @@ module kdg.monopoly {
 
     opens kdg.monopoly.controllers to javafx.fxml;
     exports kdg.monopoly.controllers;
+    opens kdg.monopoly.models to javafx.fxml;
     exports kdg.monopoly.models;
-    exports kdg.monopoly.classes;
+    exports kdg.monopoly.managers;
+    opens kdg.monopoly.managers to javafx.fxml;
 }

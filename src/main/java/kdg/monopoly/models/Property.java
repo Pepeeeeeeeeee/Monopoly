@@ -35,6 +35,27 @@ public class Property {
     private boolean buyable;
     private boolean available;
 
+    @Override
+    public String toString() {
+        return "Card{" +
+                "cardId=" + cardId +
+                ", cardName='" + cardName +
+                ", cardPurchaseValue=" + cardPurchaseValue +
+                ", cardSetId=" + cardSetId +
+                ", cardRent=" + cardRent +
+                ", cardRentSet=" + cardRentSet +
+                ", cardRent1House=" + cardRent1House +
+                ", cardRent2House=" + cardRent2House +
+                ", cardRent3House=" + cardRent3House +
+                ", cardRent4House=" + cardRent4House +
+                ", cardRentHotel=" + cardRentHotel +
+                ", cardHouseCost=" + cardHouseCost +
+                ", cardHotelCost=" + cardHotelCost +
+                ", cardMortgageValue=" + cardMortgageValue +
+                ", buyable=" + buyable +
+                ", available=" + available +
+                '}';
+    }
 
     public Property(int cardId, String cardName, int cardPurchaseValue, int cardSetId, int cardRent,
                     int cardRentSet, int cardRent1House, int cardRent2House, int cardRent3House,

@@ -7,6 +7,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import kdg.monopoly.controllers.StartMenuController;
+import kdg.monopoly.managers.DatabaseManager;
 
 public class MainApplication extends Application {
     @Override
@@ -21,6 +22,9 @@ public class MainApplication extends Application {
             File f = new File("src\\main\\resources\\kdg\\monopoly\\style\\game.css");
             scene.getStylesheets().clear();
             scene.getStylesheets().add("file:///" + f.getAbsolutePath().replace("\\", "/"));
+
+            DatabaseManager databaseManager = new DatabaseManager();
+            databaseManager.test();
 
             stage.setTitle("Monopoly");
             stage.setScene(scene);

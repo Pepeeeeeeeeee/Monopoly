@@ -1,4 +1,4 @@
-package kdg.monopoly.classes;
+package kdg.monopoly.managers;
 
 import kdg.monopoly.models.Property;
 import java.util.HashMap;
